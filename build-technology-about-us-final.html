@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Build Technology</title>
+  <meta name="description" content="Build Technology provides website design, SEO, logo design, digital marketing, Google Ads, Meta Ads, hosting and AI chatbot services.">
+  <style>
+    :root {
+      --navy: #202e44;
+      --gold: #88734c;
+      --blue-gray: #a9bbc8;
+      --cream: #f2f2eb;
+      --soft: #f8f8f2;
+      --text: #202e44;
+      --muted: #5d6876;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(to bottom, var(--cream), var(--soft));
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+    .section { position: relative; overflow: hidden; padding: 76px 0 56px; }
+    .orb {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      filter: blur(2px); opacity: .45; z-index: 0;
+      animation: float 5s ease-in-out infinite;
+    }
+    .orb.one { width: 230px; height: 230px; background: #88734c16; top: 80px; left: -80px; }
+    .orb.two { width: 300px; height: 300px; background: #a9bbc820; bottom: 180px; right: -120px; animation-delay: 1s; }
+    .orb.three { width: 14px; height: 14px; background: var(--gold); top: 24%; left: 14%; opacity: .35; }
+    .orb.four { width: 20px; height: 20px; background: var(--blue-gray); top: 55%; right: 13%; opacity: .6; animation-delay: 1.5s; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    .content { position: relative; z-index: 1; }
+    .heading { text-align: center; margin-bottom: 18px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; color: var(--gold);
+      font-weight: 700; letter-spacing: 2px; font-size: .78rem; margin-bottom: 13px;
+    }
+    .eyebrow span { font-size: 1rem; }
+    h1 { font-size: clamp(2rem, 4.5vw, 3.3rem); font-weight: 500; line-height: 1.2; letter-spacing: -.8px; }
+    .gold-line { width: 96px; height: 4px; background: var(--gold); margin: 20px auto 0; border-radius: 8px; animation: grow 1.1s ease both; }
+    @keyframes grow { from { width: 0; } to { width: 96px; } }
+    .intro { text-align: center; max-width: 710px; margin: 23px auto 55px; color: var(--muted); }
+    .service-layout { display: grid; grid-template-columns: 1fr minmax(245px, 310px) 1fr; gap: 32px; align-items: center; }
+    .service-column { display: grid; gap: 38px; }
+    .service { padding: 4px 0; transition: transform .25s ease; }
+    .service:hover { transform: translateY(-5px); }
+    .service-title { display: flex; align-items: center; gap: 13px; margin-bottom: 10px; }
+    .icon {
+      width: 48px; height: 48px; flex: 0 0 48px; border-radius: 12px;
+      display: grid; place-items: center; background: #88734c19; color: var(--gold);
+      font-size: 1.35rem; font-weight: 700; transition: transform .35s, background .35s;
+    }
+    .service:hover .icon { transform: rotate(-7deg); background: #88734c30; }
+    h2 { font-size: 1.08rem; font-weight: 600; line-height: 1.3; }
+    .service p { padding-left: 61px; color: var(--muted); font-size: .91rem; }
+    .ask { display: inline-block; margin: 10px 0 0 61px; color: var(--gold); font-size: .8rem; font-weight: 700; }
+    .center-card {
+      min-height: 420px; position: relative; overflow: visible; border-radius: 7px;
+      background: var(--navy); box-shadow: 0 24px 55px #202e4425; isolation: isolate;
+      transition: transform .3s;
+    }
+    .center-card:hover { transform: scale(1.02); }
+    .center-card::before { content: ""; position: absolute; inset: -11px; border: 4px solid var(--blue-gray); border-radius: 7px; z-index: -1; }
+    .center-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .48; border-radius: 7px; }
+    .card-shade { position: absolute; inset: 0; background: linear-gradient(to bottom, #202e4420, #202e44ee); border-radius: 7px; }
+    .brand-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 22px; color: var(--white); text-align: center; }
+    .brand-mark {
+      width: 92px; height: 92px; display: grid; place-items: center; border: 1px solid #ffffffa0;
+      border-radius: 22px; background: #ffffff1a; backdrop-filter: blur(8px);
+      font-size: 2.2rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 18px;
+      animation: bob 4s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .brand-content h3 { font-size: 1.55rem; margin-bottom: 8px; }
+    .brand-content p { font-size: .9rem; color: #ffffffd9; }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      background: var(--gold); color: white; padding: 12px 18px; border-radius: 28px;
+      font-size: .88rem; font-weight: 700; margin-top: 23px; transition: background .2s, transform .2s;
+    }
+    .whatsapp-btn:hover { background: #75613e; transform: translateY(-2px); }
+    .highlights { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 86px; }
+    .highlight {
+      background: #ffffff90; border: 1px solid #ffffffb0; border-radius: 15px;
+      padding: 24px 16px; text-align: center; transition: transform .25s, background .25s;
+    }
+    .highlight:hover { transform: translateY(-6px); background: white; }
+    .highlight-icon {
+      width: 54px; height: 54px; margin: 0 auto 13px; border-radius: 50%;
+      display: grid; place-items: center; background: #202e440c; color: var(--gold); font-size: 1.35rem;
+    }
+    .highlight strong { display: block; font-size: 1.08rem; }
+    .highlight p { font-size: .86rem; color: var(--muted); margin-top: 3px; }
+    .cta {
+      margin-top: 76px; background: var(--navy); color: white; border-radius: 14px; padding: 34px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .cta h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 500; margin-bottom: 8px; }
+    .cta p { color: #ffffffcf; font-size: .94rem; }
+    .cta .whatsapp-btn { flex-shrink: 0; margin-top: 0; }
+    .contact-name { text-align: center; margin-top: 24px; font-size: .9rem; color: var(--muted); }
+    .contact-name strong { color: var(--navy); }
+    .footer { margin-top: 48px; padding-top: 22px; border-top: 1px solid #202e4418; text-align: center; color: var(--muted); font-size: .83rem; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    @media (max-width: 900px) {
+      .service-layout { grid-template-columns: 1fr 1fr; gap: 34px; }
+      .center-wrap { grid-column: 1 / -1; grid-row: 1; display: flex; justify-content: center; margin-bottom: 22px; }
+      .center-card { width: min(100%, 340px); min-height: 390px; }
+      .service-column { gap: 32px; }
+      .highlights { grid-template-columns: repeat(2, 1fr); margin-top: 65px; }
+    }
+    @media (max-width: 580px) {
+      .section { padding: 52px 0 35px; }
+      .container { width: calc(100% - 34px); }
+      .intro { margin-bottom: 38px; }
+      .service-layout { grid-template-columns: 1fr; gap: 34px; }
+      .center-wrap { grid-column: auto; grid-row: auto; margin: 0 0 10px; }
+      .center-card { min-height: 390px; }
+      .service-column { gap: 27px; }
+      .highlights { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 55px; }
+      .highlight { padding: 19px 10px; }
+      .cta { padding: 26px 21px; align-items: flex-start; flex-direction: column; margin-top: 55px; }
+      .cta .whatsapp-btn { width: 100%; }
+      .service p { padding-left: 0; }
+      .ask { margin-left: 0; }
+      .service-title { align-items: flex-start; }
+      h2 { padding-top: 2px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <section class="section" id="about">
+    <div class="orb one"></div><div class="orb two"></div><div class="orb three"></div><div class="orb four"></div>
+    <div class="container content">
+      <header class="heading reveal">
+        <div class="eyebrow"><span>✦</span> BUILD TECHNOLOGY</div>
+        <h1>About Build Technology</h1>
+        <div class="gold-line"></div>
+      </header>
+
+      <p class="intro reveal">
+        We help businesses build a stronger online presence through professional website design,
+        SEO, creative branding, and digital marketing. Our goal is to help your business connect
+        with more customers using practical digital solutions.
+      </p>
+
+      <div class="service-layout">
+        <div class="service-column">
+          <article class="service reveal">
+            <div class="service-title"><div class="icon">⌘</div><h2>Website Design & Development</h2></div>
+            <p>Modern, mobile-friendly websites designed to present your business professionally and turn visitors into customers.</p>
+            <a class="ask" href="https://wa.me/923172673711?text=Assalamualaikum%2C%20I%20want%20to%20ask%20about%20website%20design." target="_blank" rel="noopener">Ask about this service →</a>
+          </article>
+          <article class="service reveal">
+            <div class="service-title"><div class="icon">⌕</div><h2>SEO (Search Engine Optimization)</h2></div>
+            <p>Improve your website's structure and search visibility so people can find your business online.</p>
+            <a class="ask" href="https://wa.me/923172673711?text=Assalamualaikum%2C%20I%20want%20to%20ask%20about%20SEO." target="_blank" rel="noopener">Ask about this service →</a>
+          </article>
+          <article class="service reveal">
+            <div class="service-title"><div class="icon">✦</div><h2>Logo & Brand Design</h2></div>
+            <p>Distinctive logos and consistent brand visuals to help your business make a memorable first impression.</p>
+            <a class="ask" href="https://wa.me/923172673711?text=Assalamualaikum%2C%20I%20want%20to%20ask%20about%20logo%20design." target="_blank" rel="noopener">Ask about this service →</a>
+          </article>
+        </div>
+
+        <div class="center-wrap reveal">
+          <div class="center-card">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85" alt="People collaborating on a digital project">
+            <div class="card-shade"></div>
+            <div class="brand-content">
+              <div class="brand-mark">BT</div>
+              <h3>Build Technology</h3>
+              <p>Digital solutions for growing businesses</p>
+              <a class="whatsapp-btn" href="https://wa.me/923172673711?text=Assalamualaikum%2C%20I%20want%20to%20know%20about%20Build%20Technology%20services." target="_blank" rel="noopener">☏ Talk to Us →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-column">
+          <article class="service reveal">
+            <div class="service-title"><div class="icon">↗</div><h2>Digital Marketing</h2></div>
+            <p>Marketing plans tailored to your business goals, target audience, and budget.</p>
+            <a class="ask" href="https://wa.me/923172673711?text=Assalamualaikum%2C%20I%20want%20to%20ask%20about%20digital%20marketing." target="_blank" rel="noopener">Ask about this service →</a>
+          </article>
+          <article class="service reveal">
+            <div class="service-title"><div class="icon">◎</div><h2>Google Ads & Meta Ads</h2></div>
+            <p>Campaign setup and advertising support for Google, Facebook, and Instagram.</p>
+            <a class="ask" href="https://wa.me/923172673711?text=Assalamualaikum%2C%20I%20want%20to%20ask%20about%20Google%20and%20Meta%20Ads." target="_blank" rel="noopener">Ask about this service →</a>
+          </article>
+          <article class="service reveal">
+            <div class="service-title"><div class="icon">☁</div><h2>Hosting, Social Media & AI Chatbots</h2></div>
+            <p>Domain and hosting setup, social media content, and AI chatbot solutions for common customer questions.</p>
+            <a class="ask" href="https://wa.me/923172673711?text=Assalamualaikum%2C%20I%20want%20to%20ask%20about%20hosting%20or%20AI%20chatbots." target="_blank" rel="noopener">Ask about this service →</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="highlights">
+        <article class="highlight reveal"><div class="highlight-icon">▣</div><strong>Mobile-friendly</strong><p>Responsive Website Design</p></article>
+        <article class="highlight reveal"><div class="highlight-icon">⌕</div><strong>SEO</strong><p>Search Visibility</p></article>
+        <article class="highlight reveal"><div class="highlight-icon">♧</div><strong>Client-first</strong><p>Clear Communication</p></article>
+        <article class="highlight reveal"><div class="highlight-icon">✧</div><strong>Creative</strong><p>Digital Solutions</p></article>
+      </div>
+
+      <div class="cta reveal">
+        <div>
+          <h3>Ready to grow your business online?</h3>
+          <p>Contact SYEDA HANIYA RIZVI or SYED HAIDER RIZVI, the founders of Build Technology, for a free initial consultation.</p>
+          <p style="margin-top:8px"><strong>WhatsApp: 0317 2673711</strong></p>
+        </div>
+        <a class="whatsapp-btn" href="https://wa.me/923172673711?text=Assalamualaikum%2C%20I%20would%20like%20a%20free%20consultation." target="_blank" rel="noopener">☏ Get a Free Consultation →</a>
+      </div>
+
+      <div class="contact-name reveal"><strong>SYEDA HANIYA RIZVI &amp; SYED HAIDER RIZVI</strong> · FOUNDERS OF BUILD TECHNOLOGY</div>
+      <footer class="footer">© <span id="year"></span> Build Technology. All rights reserved.</footer>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("show"));
+    }
+  </script>
+</body>
+</html>
